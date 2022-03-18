@@ -2,6 +2,7 @@
 using DigitalProduct.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DigitalProduct.EntityFramework.Migrations
 {
     [DbContext(typeof(DigitalProductDbContext))]
-    partial class DigitalProductDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220318210919_AddNotificationAndShopping")]
+    partial class AddNotificationAndShopping
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.3");
