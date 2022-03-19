@@ -1,16 +1,19 @@
-using DigitalProduct.Application.Generic;
-using DigitalProduct.Application.Products;
+using DigitalProduct.Api.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// -- Inject to repository
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddTransient<IProductService, ProductService>();
+// -- Configure logs
+builder.Logging.AddFile("App_Data/logs-{Date}.txt");
 
-// Add services to the container.
+// -- Add Lazy Cache
+builder.Services.AddLazyCache();
+
+// -- Add services to the container.
+builder.Services.AddDependency();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// -- Add Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

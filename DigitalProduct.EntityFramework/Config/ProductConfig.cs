@@ -10,9 +10,5 @@ public class ProductConfig : IEntityTypeConfiguration<Product>
     {
         builder.ToTable("Products");
         builder.HasKey(x => x.Id);
-
-        builder.HasOne(x => x.Shopping)
-               .WithMany(x => x.Products)
-               .HasForeignKey(x => x.ShoppingId);
     }
 }

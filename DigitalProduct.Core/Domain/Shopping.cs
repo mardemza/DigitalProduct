@@ -5,5 +5,5 @@ public class Shopping
     public long Id { get; set; }
     public string Name { get; set; }
 
-    public virtual IList<Product> Products { get; set; } = new List<Product>();
+    public virtual IList<ShoppingProduct> ProductShoppings { get; set; } = new List<ShoppingProduct>();
 }

@@ -1,7 +1,7 @@
 ﻿using DigitalProduct.Application.Notifications;
 using DigitalProduct.Application.Products;
 
-namespace DigitalProduct.Application.Shopping;
+namespace DigitalProduct.Application.Shoppings;
 
 public class ShoppingMediator : IShoppingMediator
 {
@@ -22,9 +22,8 @@ public class ShoppingMediator : IShoppingMediator
     public async Task Handle(long id)
     {
         // Fetch Product from Database
-        var maestrodetalle = await _productService.GetById(id);
-        var product = maestrodetalle.Detalle;
-
+        var product = await _productService.Get(id);
+        
         // Add Product to Basket
         _shoppingService.AddToBasket(product);
 

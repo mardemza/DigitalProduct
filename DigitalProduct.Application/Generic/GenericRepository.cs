@@ -5,46 +5,58 @@ namespace DigitalProduct.Application.Generic;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
-    protected readonly DigitalProductDbContext _context;
-    public GenericRepository(DigitalProductDbContext context)
+    private DigitalProductDbContext _context;
+    public DigitalProductDbContext Context
     {
-        _context = context;
+        get
+        {
+            if (_context == null)
+                _context = new DigitalProductDbContext();   
+            return _context;
+        }
     }
+
     public void Add(T entity)
     {
-        _context.Set<T>().Add(entity);
+        Context.Set<T>().Add(entity);
+        Context.SaveChanges();
     }
     public void Add(IEnumerable<T> entities)
     {
-        _context.Set<T>().AddRange(entities);
+        Context.Set<T>().AddRange(entities);
+        Context.SaveChanges();
     }
 
     public void Update(T entity)
     {
-        _context.Set<T>().Update(entity);
+        Context.Set<T>().Update(entity);
+        Context.SaveChanges();
     }
     public void Update(IEnumerable<T> entities)
     {
-        _context.Set<T>().UpdateRange(entities);
+        Context.Set<T>().UpdateRange(entities);
+        Context.SaveChanges();
     }
     public IEnumerable<T> GetAll(Expression<Func<T, bool>> expression)
     {
-        return _context.Set<T>().Where(expression);
+        return Context.Set<T>().Where(expression);
     }
     public IEnumerable<T> GetAll()
     {
-        return _context.Set<T>().ToList();
+        return Context.Set<T>().ToList();
     }
     public T Get(long id)
     {
-        return _context.Set<T>().Find(id);
+        return Context.Set<T>().Find(id);
     }
     public void Remove(T entity)
     {
-        _context.Set<T>().Remove(entity);
+        Context.Set<T>().Remove(entity);
+        Context.SaveChanges();
     }
     public void Remove(IEnumerable<T> entities)
     {
-        _context.Set<T>().RemoveRange(entities);
+        Context.Set<T>().RemoveRange(entities);
+        Context.SaveChanges();
     }
 }

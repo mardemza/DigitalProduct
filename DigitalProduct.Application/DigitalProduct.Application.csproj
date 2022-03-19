@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LazyCache" Version="2.4.0" />
+    <PackageReference Include="LazyCache.AspNetCore" Version="2.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="107.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DigitalProduct.Core\DigitalProduct.Core.csproj" />
     <ProjectReference Include="..\DigitalProduct.EntityFramework\DigitalProduct.EntityFramework.csproj" />
   </ItemGroup>

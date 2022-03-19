@@ -1,4 +1,4 @@
-﻿namespace DigitalProduct.Application.Shopping;
+﻿namespace DigitalProduct.Application.Shoppings;
 
 public interface IShoppingMediator
 {

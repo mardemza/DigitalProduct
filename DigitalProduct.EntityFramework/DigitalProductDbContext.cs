@@ -8,6 +8,8 @@ public class DigitalProductDbContext: DbContext
 {
     public DbSet<Product> Products { get; set; }
     public DbSet<Notification> Notifications { get; set; }
+    public DbSet<Shopping> Shoppings { get; set; }
+    public DbSet<ShoppingProduct> ShoppingProducts { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -22,5 +24,6 @@ public class DigitalProductDbContext: DbContext
         modelBuilder.ApplyConfiguration(new ProductConfig());
         modelBuilder.ApplyConfiguration(new NotificationConfig());
         modelBuilder.ApplyConfiguration(new ShoppingConfig());
+        modelBuilder.ApplyConfiguration(new ShoppingProductConfig());
     }
 }
