@@ -46,6 +46,7 @@ public class ShoppingController : ControllerBase
     [Route("getbyid/{id}")]
     public async Task<ActionResult<MaestroDetalleDto>> GetById(int id)
     {
+        _logger.LogInformation($"Shopping => GetById | {DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}");
         var maestrodetalle = await _productService.GetById(id);
         return Ok(maestrodetalle);
     }
