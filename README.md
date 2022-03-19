@@ -28,6 +28,9 @@ Es donde se encuentra la logica de negocio repartida en servicios que se consume
 4) Proyecto Api\
 Es el proyecto que contiene las APIs que llaman a los servicios para realizar las acciones necesarias.
 
+5) Proyecto Tests\
+En este proyecto se encuentran dos test simples de los metodos de los controladores
+
 ## Como correr el proyecto
 
 1) Abrir un cmd
